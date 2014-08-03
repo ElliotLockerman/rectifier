@@ -12,8 +12,13 @@ import math
 
 def mapping(output_coords):
     
-
-    input_coords = (output_coords[0] + (-1 * (math.sqrt(circle_radius_pixels ** 2 - (output_coords[1] - (original_width_pixels / 2)) ** 2) - circle_radius_pixels)), output_coords[1], output_coords[2])
+    input_coords = (output_coords[0] + (-1 * (math.sqrt(circle_radius_pixels ** 2 - (output_coords[1] - (original_width_pixels / 2)) ** 2) - circle_radius_pixels)), output_coords[1])
+    
+    if len(output_coords) == 3:
+        input_coords = input_coords + (output_coords[2],)
+        
+    if len(output_coords) == 4:
+        input_coords = input_coords + (output_coords[3],)
         
     return(input_coords)
 
@@ -40,7 +45,7 @@ if __name__ == "__main__" :
             
     # Output the final png        
     dot_index = file.rfind('.')
-    output_name = file[0:dot_index - 1] + '_output.png'
+    output_name = file[0:dot_index] + '_output.png'
     scipy.misc.imsave(output_name,transformed)
 
     
