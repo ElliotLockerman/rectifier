@@ -2,11 +2,9 @@
 
 from sys import argv
 import scipy.ndimage
-import matplotlib.image as mpimg
 import numpy as np
 import matplotlib.pyplot as plt
-import math
-
+from math import sqrt
 
 
 
@@ -49,7 +47,7 @@ class Curved_Lines_Rectifier:
 
     def mapping(self, output_coords):
 
-        input_coords = (output_coords[0] + (-1 * (math.sqrt(self.circle_radius_pixels ** 2 - (output_coords[1] - (self.original_width_pixels / 2)) ** 2) - self.circle_radius_pixels)), output_coords[1])
+        input_coords = (output_coords[0] + (-1 * (sqrt(self.circle_radius_pixels ** 2 - (output_coords[1] - (self.original_width_pixels / 2)) ** 2) - self.circle_radius_pixels)), output_coords[1])
 
         # For color images, there are extra dimensions; we don't need to shift, 
         # so give 'em back what they gave us.
