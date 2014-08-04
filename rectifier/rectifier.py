@@ -13,7 +13,7 @@ if __name__ == "__main__":
     
     # Get arguments
     parser = argparse.ArgumentParser()
-    parser.add_argument("input", help="the document to be rectified, as one of the following image formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, or FPX")
+    parser.add_argument("input", help="the document (8.5 by 11 in page, 7.213 in radius circles, 300 dpi) to be rectified, as one of the following image formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, or FPX")
     parser.add_argument("--output", help="Set output path/filename. When not set, output is same as input, with '_output' appended before the extension. If --overwrite is not set and the file already exists, '_n' will be appended, where n is the lowest positive integer such that the resulting filename does not yet exist")
     parser.add_argument("--overwrite", help="overwrite_argument any previous output files", action="store_true")
     parser.add_argument("-e", "--extension", help="set output extension to one of the following formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, FPX, or PDF. The default output format is the same as the input format")
