@@ -52,7 +52,7 @@ if __name__ == "__main__":
     else:
         output_file_path_final = output_file_path_argument
     
-    scipy.misc.imsave(output_file_path, transformed)
+    scipy.misc.imsave(output_file_path_final, transformed)
     print("Saved to: " + output_file_path_final)
     
     
