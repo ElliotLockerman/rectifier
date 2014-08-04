@@ -5,12 +5,12 @@ import scipy.ndimage
 from math import sqrt
 
 
-class CurvedLinesTransformer:
+class Transformer:
     
-    def __init__(self, original_file):
+    def __init__(self, original_file_path):
 
         # Load up the image
-        self.original_image = scipy.ndimage.imread(file)    
+        self.original_image = scipy.ndimage.imread(original_file_path)    
         
         # Set up measurments
         self.original_width_pixels = self.original_image.shape[1]
