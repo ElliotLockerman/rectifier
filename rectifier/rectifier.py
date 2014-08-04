@@ -14,15 +14,15 @@ if __name__ == "__main__":
     # Get arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="the document to be rectified, as one of the following image formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, or FPX")
-    parser.add_argument("--output", help="Set output path/filename. Default is same as input, with '_output' appended before the extension. If --overwrite_argument is not set and the file already exists '_n' will be appended, where n is the lowest number such that the resulting filename does not yet exist")
-    parser.add_argument("--overwrite_argument", help="overwrite_argument any previous output files", action="store_true")
+    parser.add_argument("--output", help="Set output path/filename. When not set, output is same as input, with '_output' appended before the extension. If --overwrite is not set and the file already exists, '_n' will be appended, where n is the lowest positive integer such that the resulting filename does not yet exist")
+    parser.add_argument("--overwrite", help="overwrite_argument any previous output files", action="store_true")
     parser.add_argument("-e", "--extension", help="set output extension to one of the following formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, FPX, or PDF. The default output format is the same as the input format")
     
     # Parse arguments
     args = parser.parse_args()
     original_file_path_argument = args.input
     output_file_path_argument = args.output
-    overwrite_argument = args.overwrite_argument
+    overwrite_argument = args.overwrite
     extension_argument = args.extension
     
     if extension_argument:
@@ -49,6 +49,8 @@ if __name__ == "__main__":
         output_file_path_final = utils.generate_output_file_path(original_file_path_argument, overwrite_argument, output_format)
     elif os.path.exists(output_file_path_argument) and not overwrite_argument:
         output_file_path_final = utils.find_earliest_output_path(output_file_path_argument)
+    else:
+        output_file_path_final = output_file_path_argument
     
     scipy.misc.imsave(output_file_path, transformed)
     print("Saved to: " + output_file_path_final)
