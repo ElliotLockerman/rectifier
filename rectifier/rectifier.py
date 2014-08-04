@@ -23,14 +23,15 @@ if __name__ == "__main__":
     overwrite = args.overwrite
     
     if args.extension:
-        output_format = args.extension # Will be replaced with argument
+        output_format = args.extension
+        
         if output_format[0] != '.':
             sys.stderr.write("Error: output format must be specified as an extension")
             print("")
             sys.exit(1)
             
     else:
-        x,args.format = os.path.splitext(original_file_path)
+        x,args.format = os.path.splitext(original_file_path) # If the argument wasn't set, the default is the same as the origonal
     
     
     # Do the transform

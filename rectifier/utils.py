@@ -20,7 +20,7 @@ def find_earliest_output_path(output_file_path):
     earliest_output_path_found = False
     i = 2
         
-    
+    # Look through numbers to append untill the one thats not used is found
     while earliest_output_path_found == False:
         dot_index = output_file_path.rfind('.')
         new_output_file_path = output_file_path[:dot_index] + '_' + str(i) + output_file_path[dot_index:]
