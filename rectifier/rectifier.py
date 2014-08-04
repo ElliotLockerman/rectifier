@@ -1,6 +1,7 @@
 #! /usr/bin/env python
 
 import sys
+import os.path
 import argparse
 from morph import Transformer
 import utils
@@ -29,7 +30,7 @@ if __name__ == "__main__":
             sys.exit(1)
             
     else:
-        x,args.format = os.path.splitext(origional_file_path)
+        x,args.format = os.path.splitext(original_file_path)
     
     
     # Do the transform
