@@ -18,7 +18,11 @@ def generate_output_file_path(original_file_path, overwrite, output_format):
 def find_earliest_output_path(output_file_path):
     
     earliest_output_path_found = False
-    i = 2
+    i = 1
+        
+    if not os.path.exists(output_file_path):
+        earliest_output_path_found = True    
+        new_output_file_path = output_file_path
         
     # Look through numbers to append untill the one thats not used is found
     while earliest_output_path_found == False:
