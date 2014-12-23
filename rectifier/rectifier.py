@@ -29,7 +29,7 @@ if __name__ == "__main__":
         output_format = extension_argument
         
         if output_format[0] != '.':
-            sys.stderr.write("Error: output format must be specified as an extension, not a format name. ( and the first character must be a period)")
+            sys.stderr.write("Error: output format must be specified as an extension, not a format name (and the first character must be a period).")
             print("")
             sys.exit(1)
             
