@@ -26,7 +26,7 @@ class Transformer:
 
     
     def run(self):
-        return scipy.ndimage.interpolation.geometric_transform(input=self.original_image, mapping=self.mapping, output_shape=self.output_shape)
+        return scipy.ndimage.interpolation.geometric_transform(input=self.original_image, mapping=self.mapping, output_shape=self.output_shape, mode="constant", cval=255)
 
 
     def mapping(self, output_coords):
