@@ -14,9 +14,9 @@ if __name__ == "__main__":
     # Get arguments
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="the document (8.5 by 11 in page, 7.213 in radius circles, 300 dpi) to be rectified, as one of the following image formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, or FPX")
-    parser.add_argument("--output", help="Set output path/filename. When not set, output is same as input, with '_output' appended before the extension. If --overwrite is not set and the file already exists, '_n' will be appended, where n is the lowest positive integer such that the resulting filename does not yet exist")
+    parser.add_argument("--output", help="Set output path/filename. When not set, output is same as input, with '_output' appended before the extension. If --overwrite is not set and the file already exists, '_n' will be appended, where n is the lowest positive integer such that the resulting filename does not yet exist. Note that format/extension is set separately, with '-e'")
     parser.add_argument("--overwrite", help="overwrite any previous output files with the same name", action="store_true")
-    parser.add_argument("-e", "--extension", help="set the output extension of one of the following formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, FPX, or PDF. The default output format is the same as the input format")
+    parser.add_argument("-e", "--extension", help="set the output extension of one of the following formats: BMP, EPS, GIF, IM, JPEG, JPEG 2000, MSP, PCX, PNG, PPM, SPIDER, TIFF, WebP, XBM, XV Thumbnails, DCX, FPX, or PDF. The default output format is the same as the input format") # Setting the extension/format separately allows one to change the format but keep the default (input based) output name
     
     # Parse arguments
     args = parser.parse_args()
